@@ -8,3 +8,5 @@ Resource        ../main.robot
 ### Dados Login Institucional ###
 ...     Email=natanael.santos.lino08@aluno.ifce.edu.br
 ...     Senha=senhaTesteLasic.123
+### Dados de atividades a ser desenvolvidas ###
+...     Atividade_Desenvolvida=Estudo e aplicação de teste robotframework
