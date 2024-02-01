@@ -11,6 +11,7 @@ Resource        ../main.robot
 #...    Span_Escolher_Nome=(//span[@class="vRMGwf oJeWuf"])[1]      ### listbox Escolher nome
 ...     Span_Nome_Completo=(//span[text()="Antônio Herbert da Silva Francelino"])[2]
 ...     Span_Limpar_Formulario=//span[text()="Limpar formulário"]
+...     Span_Modal_Limpar_Formulario=(//span[text()="Limpar formulário"])[3]
 ...     Textarea_Atividade_Desenvolvida=//textarea[@class="KHxj8b tL9Q4c"]
 
 ***Keywords***
@@ -39,3 +40,6 @@ E informar atividade a ser desenvolvida
 Então clique em limpar formulario 
     Wait Until Element Is Visible       ${home_Page.Span_Limpar_Formulario}       10s
     Click Element                       ${home_Page.Span_Limpar_Formulario}
+    Wait Until Element Is Visible       ${home_Page.Span_Modal_Limpar_Formulario}       10s
+    Click Element                       ${home_Page.Span_Modal_Limpar_Formulario}
+    Sleep                               5s
