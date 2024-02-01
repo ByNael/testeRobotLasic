@@ -10,3 +10,4 @@ TC01 - Acessando o formulario de ponto de controle e preenchendo as informaçõe
     Quando informa o nome completo
     E informar horario, area e projeto trabalhado
     E informar atividade a ser desenvolvida
+    Então clique em limpar formulario 

@@ -10,6 +10,7 @@ Resource        ../main.robot
 ...     Div_ListBox_Escolher_Nome=//div[@role="listbox"]
 #...    Span_Escolher_Nome=(//span[@class="vRMGwf oJeWuf"])[1]      ### listbox Escolher nome
 ...     Span_Nome_Completo=(//span[text()="Antônio Herbert da Silva Francelino"])[2]
+...     Span_Limpar_Formulario=//span[text()="Limpar formulário"]
 ...     Textarea_Atividade_Desenvolvida=//textarea[@class="KHxj8b tL9Q4c"]
 
 ***Keywords***
@@ -34,3 +35,7 @@ E informar horario, area e projeto trabalhado
 E informar atividade a ser desenvolvida
     Wait Until Element Is Visible       ${home_Page.Textarea_Atividade_Desenvolvida}       10s
     Input Text                          ${home_Page.Textarea_Atividade_Desenvolvida}       ${geral.Atividade_Desenvolvida}
+
+Então clique em limpar formulario 
+    Wait Until Element Is Visible       ${home_Page.Span_Limpar_Formulario}       10s
+    Click Element                       ${home_Page.Span_Limpar_Formulario}
