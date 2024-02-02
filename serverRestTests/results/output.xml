@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240202 17:31:32.302" rpa="false" schemaversion="4">
+<suite id="s1" name="serverRest" source="C:\Users\natan\OneDrive\Imagens\Documentos\testeRobotLasic\serverRestTests\serverRest.robot">
+<test id="s1-t1" name="TC02 - Realizar login e pegar um produto de id escolhido" line="44">
+<kw name="Fazer login">
+<arg>email=fulano@qa.com</arg>
+<arg>password=teste</arg>
+<kw name="Criar headers">
+<var>&amp;{headers}</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content_type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240202 17:31:32.447" level="INFO">&amp;{headers} = { Content_type=application/json }</msg>
+<status status="PASS" starttime="20240202 17:31:32.447" endtime="20240202 17:31:32.447"/>
+</kw>
+<msg timestamp="20240202 17:31:32.447" level="INFO">&amp;{headers} = { }</msg>
+<status status="PASS" starttime="20240202 17:31:32.447" endtime="20240202 17:31:32.447"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{body}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240202 17:31:32.448" level="INFO">&amp;{body} = { email=fulano@qa.com | password=teste }</msg>
+<status status="PASS" starttime="20240202 17:31:32.447" endtime="20240202 17:31:32.448"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<arg>url=${HOST}/${LOGIN}</arg>
+<arg>headers=${headers}</arg>
+<arg>json=&amp;{body}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240202 17:31:33.213" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
+ body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+ </msg>
+<msg timestamp="20240202 17:31:33.213" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'a121af98c72e570c14f3c8f3331aa645;o=1', 'Date': 'Fri, 02 Feb 2024 20:31:33 GMT', 'Server': 'Google Frontend', 'Content-Length': '265'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzA2OTA1ODkzLCJleHAiOjE3MDY5MDY0OTN9.YpybMzFK17HOOaCLIqLIv6ZK6g7dba9ifykNwkRLjTw"
+} 
+ </msg>
+<status status="PASS" starttime="20240202 17:31:32.448" endtime="20240202 17:31:33.213"/>
+</kw>
+<status status="PASS" starttime="20240202 17:31:32.445" endtime="20240202 17:31:33.213"/>
+</kw>
+<kw name="Pegar um produto de id BeeJh5lz3k6kSIzA" sourcename="Pegar um produto de id ${id}">
+<kw name="Criar headers">
+<var>&amp;{headers}</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content_type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240202 17:31:33.214" level="INFO">&amp;{headers} = { Content_type=application/json }</msg>
+<status status="PASS" starttime="20240202 17:31:33.214" endtime="20240202 17:31:33.214"/>
+</kw>
+<msg timestamp="20240202 17:31:33.214" level="INFO">&amp;{headers} = { }</msg>
+<status status="PASS" starttime="20240202 17:31:33.214" endtime="20240202 17:31:33.214"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${GET_SINGLE_PRODUCT}</var>
+<arg>${GET_SINGLE_PRODUCT}</arg>
+<arg>id-produto</arg>
+<arg>${id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20240202 17:31:33.215" level="INFO">${GET_SINGLE_PRODUCT} = produtos/BeeJh5lz3k6kSIzA</msg>
+<status status="PASS" starttime="20240202 17:31:33.215" endtime="20240202 17:31:33.215"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<arg>url=${HOST}/${GET_SINGLE_PRODUCT}</arg>
+<arg>headers=&amp;{headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240202 17:31:33.907" level="INFO">GET Request : url=https://serverest.dev/produtos/BeeJh5lz3k6kSIzA 
+ path_url=/produtos/BeeJh5lz3k6kSIzA 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20240202 17:31:33.907" level="INFO">GET Response : url=https://serverest.dev/produtos/BeeJh5lz3k6kSIzA 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '42473c7ae03d25ed1a28e15ce8fe3978', 'Date': 'Fri, 02 Feb 2024 20:31:33 GMT', 'Server': 'Google Frontend', 'Content-Length': '136'} 
+ body={
+    "nome": "Logitech MX Vertical",
+    "preco": 470,
+    "descricao": "Mouse",
+    "quantidade": 382,
+    "_id": "BeeJh5lz3k6kSIzA"
+} 
+ </msg>
+<status status="PASS" starttime="20240202 17:31:33.215" endtime="20240202 17:31:33.909"/>
+</kw>
+<status status="PASS" starttime="20240202 17:31:33.214" endtime="20240202 17:31:33.909"/>
+</kw>
+<status status="PASS" starttime="20240202 17:31:32.445" endtime="20240202 17:31:33.909"/>
+</test>
+<status status="PASS" starttime="20240202 17:31:32.304" endtime="20240202 17:31:33.910"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="serverRest">serverRest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
