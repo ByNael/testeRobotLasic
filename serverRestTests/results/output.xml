@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240202 18:41:09.683" rpa="false" schemaversion="4">
-<suite id="s1" name="serverRest" source="C:\Users\natan\OneDrive\Imagens\Documentos\testeRobotLasic\serverRestTests\serverRest.robot">
-<test id="s1-t1" name="TC04 - Deletar produto especifico" line="70">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240207 15:38:04.752" rpa="false" schemaversion="4">
+<suite id="s1" name="serverRest" source="/home/lasic/Documentos/apaga2/testeRobotLasic/serverRestTests/serverRest.robot">
+<test id="s1-t1" name="TC05 - Cadastrar novo produto" line="93">
 <kw name="Fazer login">
-<arg>email=fulano@qa.com</arg>
+<arg>email=beltrano@qa.com.br</arg>
 <arg>password=teste</arg>
 <kw name="Criar headers">
 <var>&amp;{headers}</var>
@@ -11,88 +11,94 @@
 <var>&amp;{headers}</var>
 <arg>Content_type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240202 18:41:09.801" level="INFO">&amp;{headers} = { Content_type=application/json }</msg>
-<status status="PASS" starttime="20240202 18:41:09.801" endtime="20240202 18:41:09.801"/>
+<msg timestamp="20240207 15:38:04.817" level="INFO">&amp;{headers} = { Content_type=application/json }</msg>
+<status status="PASS" starttime="20240207 15:38:04.817" endtime="20240207 15:38:04.817"/>
 </kw>
-<msg timestamp="20240202 18:41:09.801" level="INFO">&amp;{headers} = { }</msg>
-<status status="PASS" starttime="20240202 18:41:09.801" endtime="20240202 18:41:09.801"/>
+<msg timestamp="20240207 15:38:04.818" level="INFO">&amp;{headers} = { }</msg>
+<status status="PASS" starttime="20240207 15:38:04.817" endtime="20240207 15:38:04.818"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{body}</var>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240202 18:41:09.803" level="INFO">&amp;{body} = { email=fulano@qa.com | password=teste }</msg>
-<status status="PASS" starttime="20240202 18:41:09.801" endtime="20240202 18:41:09.803"/>
+<msg timestamp="20240207 15:38:04.818" level="INFO">&amp;{body} = { email=beltrano@qa.com.br | password=teste }</msg>
+<status status="PASS" starttime="20240207 15:38:04.818" endtime="20240207 15:38:04.818"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <arg>url=${HOST}/${LOGIN}</arg>
 <arg>headers=${headers}</arg>
 <arg>json=&amp;{body}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20240202 18:41:10.492" level="INFO">POST Request : url=https://serverest.dev/login 
+<msg timestamp="20240207 15:38:05.286" level="INFO">POST Request : url=https://serverest.dev/login 
  path_url=/login 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
- body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '52', 'Content-Type': 'application/json'} 
+ body=b'{"email": "beltrano@qa.com.br", "password": "teste"}' 
  </msg>
-<msg timestamp="20240202 18:41:10.493" level="INFO">POST Response : url=https://serverest.dev/login 
+<msg timestamp="20240207 15:38:05.286" level="INFO">POST Response : url=https://serverest.dev/login 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '9580740ceff2af2cb0fb820436c57d2e;o=1', 'Date': 'Fri, 02 Feb 2024 21:41:10 GMT', 'Server': 'Google Frontend', 'Content-Length': '265'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '2e10f3aadf98ad250b10e5b347f9007b;o=1', 'Date': 'Wed, 07 Feb 2024 18:38:05 GMT', 'Server': 'Google Frontend', 'Content-Length': '272'} 
  body={
     "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzA2OTEwMDcwLCJleHAiOjE3MDY5MTA2NzB9.M8MIRx3p-ve6n5WoF1ZykEcmXQLplKlSqkNZbBuK0fY"
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbHRyYW5vQHFhLmNvbS5iciIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE3MDczMzEwODUsImV4cCI6MTcwNzMzMTY4NX0.SmU5fmKUxlzLKY_vlbYQyl-nU0zwSJY0ZXewBriBhac"
 } 
  </msg>
-<status status="PASS" starttime="20240202 18:41:09.803" endtime="20240202 18:41:10.493"/>
+<status status="PASS" starttime="20240207 15:38:04.818" endtime="20240207 15:38:05.287"/>
 </kw>
-<status status="PASS" starttime="20240202 18:41:09.801" endtime="20240202 18:41:10.493"/>
+<status status="PASS" starttime="20240207 15:38:04.817" endtime="20240207 15:38:05.287"/>
 </kw>
-<kw name="Deletar produto de id 0uxuPY0cbmQhpEz1" sourcename="Deletar produto de id ${id}">
+<kw name="Cadastrar novo produto">
+<arg>nome=testeCadastrar</arg>
+<arg>descricao=testeCadastrarDescricao</arg>
+<arg>preco=666</arg>
+<arg>quantidade=5</arg>
 <kw name="Criar headers">
 <var>&amp;{headers}</var>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{headers}</var>
 <arg>Content_type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240202 18:41:10.494" level="INFO">&amp;{headers} = { Content_type=application/json }</msg>
-<status status="PASS" starttime="20240202 18:41:10.494" endtime="20240202 18:41:10.494"/>
+<msg timestamp="20240207 15:38:05.288" level="INFO">&amp;{headers} = { Content_type=application/json }</msg>
+<status status="PASS" starttime="20240207 15:38:05.288" endtime="20240207 15:38:05.288"/>
 </kw>
-<msg timestamp="20240202 18:41:10.494" level="INFO">&amp;{headers} = { }</msg>
-<status status="PASS" starttime="20240202 18:41:10.493" endtime="20240202 18:41:10.494"/>
+<msg timestamp="20240207 15:38:05.288" level="INFO">&amp;{headers} = { }</msg>
+<status status="PASS" starttime="20240207 15:38:05.287" endtime="20240207 15:38:05.288"/>
 </kw>
-<kw name="Replace String" library="String">
-<var>${DELETE_PRODUCT}</var>
-<arg>${DELETE_PRODUCT}</arg>
-<arg>id-produto-delete</arg>
-<arg>${id}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20240202 18:41:10.494" level="INFO">${DELETE_PRODUCT} = produtos/0uxuPY0cbmQhpEz1</msg>
-<status status="PASS" starttime="20240202 18:41:10.494" endtime="20240202 18:41:10.494"/>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>nome=${nome}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>preco=${preco}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240207 15:38:05.289" level="INFO">${body} = {'nome': 'testeCadastrar', 'descricao': 'testeCadastrarDescricao', 'preco': '666', 'quantidade': '5'}</msg>
+<status status="PASS" starttime="20240207 15:38:05.288" endtime="20240207 15:38:05.289"/>
 </kw>
-<kw name="DELETE" library="RequestsLibrary">
-<arg>url=${HOST}/${DELETE_PRODUCT}</arg>
+<kw name="POST" library="RequestsLibrary">
+<arg>url=${HOST}/${ADD_NEW_PRODUCT}</arg>
 <arg>headers=&amp;{headers}</arg>
-<doc>Sends a DELETE request.</doc>
-<msg timestamp="20240202 18:41:11.182" level="INFO">DELETE Request : url=https://serverest.dev/produtos/0uxuPY0cbmQhpEz1 
- path_url=/produtos/0uxuPY0cbmQhpEz1 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
- body=None 
+<arg>json=&amp;{body}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240207 15:38:05.756" level="INFO">POST Request : url=https://serverest.dev/produtos/ 
+ path_url=/produtos/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '101', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "testeCadastrar", "descricao": "testeCadastrarDescricao", "preco": "666", "quantidade": "5"}' 
  </msg>
-<msg timestamp="20240202 18:41:11.182" level="INFO">DELETE Response : url=https://serverest.dev/produtos/0uxuPY0cbmQhpEz1 
+<msg timestamp="20240207 15:38:05.756" level="INFO">POST Response : url=https://serverest.dev/produtos/ 
  status=401, reason=Unauthorized 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '05d0a9babd39c22e2ec220efb8ae3b24', 'Date': 'Fri, 02 Feb 2024 21:41:11 GMT', 'Server': 'Google Frontend', 'Content-Length': '103'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '5bece514905796a214c97848aafbb4fb', 'Date': 'Wed, 07 Feb 2024 18:38:05 GMT', 'Server': 'Google Frontend', 'Content-Length': '103'} 
  body={
     "message": "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 } 
  </msg>
-<msg timestamp="20240202 18:41:11.184" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: https://serverest.dev/produtos/0uxuPY0cbmQhpEz1</msg>
-<status status="FAIL" starttime="20240202 18:41:10.494" endtime="20240202 18:41:11.185"/>
+<msg timestamp="20240207 15:38:05.757" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: https://serverest.dev/produtos/</msg>
+<status status="FAIL" starttime="20240207 15:38:05.289" endtime="20240207 15:38:05.758"/>
 </kw>
-<status status="FAIL" starttime="20240202 18:41:10.493" endtime="20240202 18:41:11.185"/>
+<status status="FAIL" starttime="20240207 15:38:05.287" endtime="20240207 15:38:05.758"/>
 </kw>
-<status status="FAIL" starttime="20240202 18:41:09.800" endtime="20240202 18:41:11.186">HTTPError: 401 Client Error: Unauthorized for url: https://serverest.dev/produtos/0uxuPY0cbmQhpEz1</status>
+<status status="FAIL" starttime="20240207 15:38:04.816" endtime="20240207 15:38:05.758">HTTPError: 401 Client Error: Unauthorized for url: https://serverest.dev/produtos/</status>
 </test>
-<status status="FAIL" starttime="20240202 18:41:09.685" endtime="20240202 18:41:11.187"/>
+<status status="FAIL" starttime="20240207 15:38:04.753" endtime="20240207 15:38:05.759"/>
 </suite>
 <statistics>
 <total>
