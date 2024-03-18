@@ -1,0 +1,6 @@
+venv/
+*.html
+*.xml
+*.png
+.idea/
+results/
